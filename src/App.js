@@ -17,7 +17,6 @@ const App = () => {
 
   return (
     <div>
-      <h1>React Table with Pagination</h1>
       <TableComponent columns={columns} data={data} />
     </div>
   );
