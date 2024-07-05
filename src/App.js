@@ -1,5 +1,5 @@
 import React from "react";
-import TableComponent from "./components/TableComponent";
+import Home from "./pages/Home";
 import { users } from "./tableData";
 import { tableHeaders } from "./tableHeaders";
 
@@ -16,8 +16,8 @@ const App = () => {
   const data = React.useMemo(() => users, []);
 
   return (
-    <div>
-      <TableComponent columns={columns} data={data} />
+    <div className="p-4">
+      <Home columns={columns} data={data} />
     </div>
   );
 };
