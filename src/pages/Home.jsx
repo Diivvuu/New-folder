@@ -17,7 +17,6 @@ const Home = ({ columns, data }) => {
 
   const renderPagination = () => {
     const buttons = [];
-    const maxButtons = 5; // Maximum buttons to show including ellipses
 
     // Show ellipsis on the left if not on the first page
     if (pageIndex > 1) {
@@ -69,6 +68,7 @@ const Home = ({ columns, data }) => {
   const toggleView = () => {
     setView(!view);
   };
+
   return (
     <div className="container mx-auto">
       <div className="flex items-center space-x-3">

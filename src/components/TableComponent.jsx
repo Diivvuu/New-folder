@@ -1,5 +1,6 @@
 import React from "react";
-// const handleRemove
+import { FaCheck, FaTimes } from "react-icons/fa"; // Import icons from react-icons library
+
 const TableComponent = ({ columns, data }) => {
   return (
     <table className="w-full border-collapse text-sm">
@@ -26,7 +27,14 @@ const TableComponent = ({ columns, data }) => {
                 key={`${row.id}-${column.id}`}
                 className="border border-gray-300 px-4 py-2"
               >
-                {row[column.accessor]}
+                {column.accessor === "actions" ? (
+                  <>
+                    <FaCheck className="text-green-500 mr-2 cursor-pointer" />
+                    <FaTimes className="text-red-500 cursor-pointer" />
+                  </>
+                ) : (
+                  row[column.accessor]
+                )}
               </td>
             ))}
           </tr>
