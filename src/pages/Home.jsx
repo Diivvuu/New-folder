@@ -71,26 +71,32 @@ const Home = ({ columns, data }) => {
   };
   return (
     <div className="container mx-auto">
-      <label class="flex justify-end items-center cursor-pointer">
-        <span className="me-3 text-sm font-medium text-black">Table View</span>
-        <input
-          type="checkbox"
-          value={view}
-          onChange={toggleView}
-          class="sr-only peer"
-        />
-        <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-        <span class="ms-3 text-sm font-medium text-black ">Card view</span>
-      </label>
+      <div className="flex items-center space-x-3">
+        <span className="text-sm font-medium text-black">Table View</span>
+        <label className="flex items-center cursor-pointer">
+          <input
+            type="checkbox"
+            className="sr-only"
+            value={view}
+            onChange={toggleView}
+          />
+          <div className="relative h-6 w-11 flex items-center bg-gray-200 rounded-full cursor-pointer dark:bg-gray-700">
+            <div className="h-5 w-5 rounded-full bg-white border-2 border-gray-300 transform transition-transform peer-checked:translate-x-full dark:border-gray-600"></div>
+          </div>
+        </label>
+        <span className="text-sm font-medium text-black">Card View</span>
+      </div>
       {view === true ? (
         <TableComponent columns={columns} data={paginatedData} />
       ) : (
-        <CardComponent data={paginatedData} />
+        <CardComponent columns={columns} data={paginatedData} />
       )}
 
       <div className="pagination flex justify-between items-center my-3 mx-auto">
         <div>
-          Showing {startIndex + 1} to {endIndex} of {data.length} records
+          Showing <span className="text-slate-500">{startIndex + 1}</span> -
+          <span className="text-slate-500">{endIndex}</span> out of{" "}
+          <span className="text-slate-500">{data.length} </span>records
         </div>
         <div className="flex items-center gap-3">
           <div className="flex gap-1">
