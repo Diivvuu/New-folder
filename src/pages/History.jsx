@@ -1,15 +1,15 @@
 import React from "react";
 
-const History = ({ historyRecords }) => {
+const History = ({ history }) => {
+  console.log("History component received:", history);
+
   return (
     <div>
-      <h2>History Component</h2>
+      <h2>History</h2>
       <ul>
-        {historyRecords.map((record) => (
-          <li key={record.id}>
-            {/* Display history records */}
-            {record.title} - {record.action}{" "}
-            {/* Example: Display title and action */}
+        {history.map((item) => (
+          <li key={item.id}>
+            {item.title} - {item.module}
           </li>
         ))}
       </ul>

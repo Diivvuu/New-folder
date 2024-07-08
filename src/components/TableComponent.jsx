@@ -1,7 +1,7 @@
 import React from "react";
 import { FaCheck, FaTimes } from "react-icons/fa"; // Import icons from react-icons library
 
-const TableComponent = ({ columns, data }) => {
+const TableComponent = ({ columns, data, onRemoveRecord }) => {
   return (
     <table className="w-full border-collapse text-sm">
       <thead>
@@ -29,7 +29,10 @@ const TableComponent = ({ columns, data }) => {
               >
                 {column.accessor === "actions" ? (
                   <>
-                    <FaCheck className="text-green-500 mr-2 cursor-pointer" />
+                    <FaCheck
+                      onClick={() => onRemoveRecord(row.id)}
+                      className="text-green-500 mr-2 cursor-pointer"
+                    />
                     <FaTimes className="text-red-500 cursor-pointer" />
                   </>
                 ) : (

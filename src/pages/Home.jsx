@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import TableComponent from "../components/TableComponent";
 import CardComponent from "../components/CardComponent";
 
-const Home = ({ columns, data }) => {
+const Home = ({ columns, data, onRemoveRecord }) => {
   const [pageIndex, setPageIndex] = React.useState(0);
   const [pageSize, setPageSize] = React.useState(10);
   const [view, setView] = useState(true);
@@ -87,7 +87,11 @@ const Home = ({ columns, data }) => {
         <span className="text-sm font-medium text-black">Card View</span>
       </div>
       {view === true ? (
-        <TableComponent columns={columns} data={paginatedData} />
+        <TableComponent
+          columns={columns}
+          data={paginatedData}
+          onRemoveRecord={onRemoveRecord}
+        />
       ) : (
         <CardComponent columns={columns} data={paginatedData} />
       )}
